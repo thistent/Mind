@@ -182,7 +182,7 @@ update msg model =
                 | game = Array.empty
                 , gameState = Playing
               }
-            , Cmd.none
+            , Random.generate NewSecret genCode
             )
 
 
