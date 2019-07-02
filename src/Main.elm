@@ -1,7 +1,11 @@
 module Main exposing (..)
 
+--import Array2D exposing (Array2D)
+--import Task
+--import Json.Decode as Decode
+--import Keyboard.Arrows as KbArrows
+
 import Array
-import Array2D exposing (Array2D)
 import Browser
 import Browser.Events as Events
 import Browser.Navigation as Nav
@@ -11,13 +15,10 @@ import Element.Border as Border
 import Element.Events exposing (onClick)
 import Element.Font as Font
 import Element.Input as Input
-import Json.Decode as Decode
 import Keyboard as Kb
-import Keyboard.Arrows as KbArrows
 import List.Extra as LE
 import Random
 import Set
-import Task
 import Url
 
 
@@ -222,7 +223,7 @@ view model =
                         ]
                         [ el
                             [ Font.size 110
-                            , Font.color <| inv <| rgb 0.75 0.5 1
+                            , Font.color <| rgb 0.75 0.5 1
                             ]
                           <|
                             text
@@ -233,11 +234,11 @@ view model =
                             , height <| px 110
                             , spacing 10
                             , padding 10
-                            , Border.color <| inv <| rgb 1 1 1
+                            , Border.color <| rgb 1 1 1
                             , Border.width 3
                             , Border.rounded 10
                             , Font.size 48
-                            , Font.color <| inv <| rgb 1 1 1
+                            , Font.color <| rgb 1 1 1
                             ]
                             { onPress = Just Reset
                             , label =
@@ -256,7 +257,7 @@ view model =
                         ]
                         [ el
                             [ Font.size 110
-                            , Font.color <| inv <| rgb 0.75 0.5 1
+                            , Font.color <| rgb 0.75 0.5 1
                             ]
                           <|
                             text
@@ -267,11 +268,11 @@ view model =
                             , height <| px 110
                             , spacing 10
                             , padding 10
-                            , Border.color <| inv <| rgb 1 1 1
+                            , Border.color <| rgb 1 1 1
                             , Border.width 3
                             , Border.rounded 10
                             , Font.size 48
-                            , Font.color <| inv <| rgb 1 1 1
+                            , Font.color <| rgb 1 1 1
                             ]
                           <|
                             { onPress = Just Reset
@@ -290,8 +291,8 @@ view model =
         [ Element.layout
             [ width fill
             , Font.family [ Font.sansSerif ]
-            , Font.color <| inv <| rgb 1 1 1
-            , Bg.color <| inv <| rgb 0.05 0 0.1
+            , Font.color <| rgb 1 1 1
+            , Bg.color <| rgb 0.05 0 0.1
             , padding 50
             ]
           <|
@@ -311,11 +312,11 @@ view model =
                         , height <| px 110
                         , spacing 10
                         , padding 10
-                        , Border.color <| inv <| rgb 0.1 0 0.2
+                        , Border.color <| rgb 0.1 0 0.2
                         , Border.width 3
                         , Border.rounded 10
                         , Font.size 64
-                        , Font.color <| inv <| rgb 0.75 0.5 1
+                        , Font.color <| rgb 0.75 0.5 1
                         ]
                       <|
                         el
@@ -366,7 +367,7 @@ gameRow secret code =
         , height <| px 110
         , spacing 10
         , padding 10
-        , Bg.color <| inv <| rgb 0.1 0 0.2
+        , Bg.color <| rgb 0.1 0 0.2
         , Border.rounded 10
         ]
         [ pickToColor <| Maybe.withDefault Empty <| LE.getAt 0 code
@@ -385,8 +386,8 @@ pickToColor pick =
             el
                 [ width <| px 90
                 , height fill
-                , Bg.color <| inv <| red
-                , Border.color <| inv <| gray
+                , Bg.color <| red
+                , Border.color <| gray
                 , Border.width 3
                 , Border.rounded 50
                 ]
@@ -396,8 +397,8 @@ pickToColor pick =
             el
                 [ width <| px 90
                 , height fill
-                , Bg.color <| inv <| green
-                , Border.color <| inv <| gray
+                , Bg.color <| green
+                , Border.color <| gray
                 , Border.width 3
                 , Border.rounded 50
                 ]
@@ -407,8 +408,8 @@ pickToColor pick =
             el
                 [ width <| px 90
                 , height fill
-                , Bg.color <| inv <| blue
-                , Border.color <| inv <| gray
+                , Bg.color <| blue
+                , Border.color <| gray
                 , Border.width 3
                 , Border.rounded 50
                 , padding 5
@@ -419,8 +420,8 @@ pickToColor pick =
             el
                 [ width <| px 90
                 , height fill
-                , Bg.color <| inv <| yellow
-                , Border.color <| inv <| gray
+                , Bg.color <| yellow
+                , Border.color <| gray
                 , Border.width 3
                 , Border.rounded 50
                 ]
@@ -441,9 +442,9 @@ pickToColor pick =
                     [ Input.button
                         [ width fill
                         , height fill
-                        , Bg.color <| inv <| red
+                        , Bg.color <| red
                         , Border.width 2
-                        , Border.color <| inv <| white
+                        , Border.color <| white
                         , Border.rounded 15
                         ]
                         { onPress = Just (PickNext Red)
@@ -452,10 +453,10 @@ pickToColor pick =
                     , Input.button
                         [ width fill
                         , height fill
-                        , Bg.color <| inv <| blue
+                        , Bg.color <| blue
                         , Border.width 2
                         , Border.width 2
-                        , Border.color <| inv <| white
+                        , Border.color <| white
                         , Border.rounded 15
                         ]
                         { onPress = Just (PickNext Blue)
@@ -470,9 +471,9 @@ pickToColor pick =
                     [ Input.button
                         [ width fill
                         , height fill
-                        , Bg.color <| inv <| yellow
+                        , Bg.color <| yellow
                         , Border.width 2
-                        , Border.color <| inv <| white
+                        , Border.color <| white
                         , Border.rounded 15
                         ]
                         { onPress = Just (PickNext Yellow)
@@ -481,9 +482,9 @@ pickToColor pick =
                     , Input.button
                         [ width fill
                         , height fill
-                        , Bg.color <| inv <| green
+                        , Bg.color <| green
                         , Border.width 2
-                        , Border.color <| inv <| white
+                        , Border.color <| white
                         , Border.rounded 15
                         ]
                         { onPress = Just (PickNext Green)
@@ -497,7 +498,7 @@ pickToColor pick =
                 [ width <| px 90
                 , height fill
                 , Border.width 3
-                , Border.color <| inv <| gray
+                , Border.color <| gray
                 , Border.rounded 50
                 ]
                 none
@@ -572,7 +573,7 @@ rightnessToEl rightness =
         attrs =
             [ width fill
             , height fill
-            , Bg.color <| inv <| rgb 0 0 0
+            , Bg.color <| rgb 0 0 0
             , Border.rounded 10
             , padding 5
             ]
@@ -607,7 +608,7 @@ rightnessToEl rightness =
                   <|
                     el
                         [ centerY
-                        , Font.color <| inv <| rgb 0.5 0.5 0.5
+                        , Font.color <| rgb 0.5 0.5 0.5
                         ]
                     <|
                         text <|
@@ -644,30 +645,30 @@ pickToString pick =
 
 
 --
+{-
+   isInverted =
+       --True
+       False
 
 
-isInverted =
-    --True
-    False
+   inv : Color -> Color
+   inv color =
+       case isInverted of
+           True ->
+               let
+                   rgb =
+                       color |> toRgb
+               in
+               { rgb
+                   | red = 1.0 - rgb.red
+                   , green = 1.0 - rgb.green
+                   , blue = 1.0 - rgb.blue
+               }
+                   |> fromRgb
 
-
-inv : Color -> Color
-inv color =
-    case isInverted of
-        True ->
-            let
-                rgb =
-                    color |> toRgb
-            in
-            { rgb
-                | red = 1.0 - rgb.red
-                , green = 1.0 - rgb.green
-                , blue = 1.0 - rgb.blue
-            }
-                |> fromRgb
-
-        False ->
-            color
+           False ->
+               color
+-}
 
 
 red : Color
