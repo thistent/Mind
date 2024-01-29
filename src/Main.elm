@@ -22,6 +22,7 @@ import Set
 import Url
 
 
+
 -- Main --
 
 
@@ -156,6 +157,7 @@ update msg model =
                             |> Array.toList
                             |> LE.zip model.secret
                             |> List.foldr (\( a, b ) i -> (a == b) && i) True
+
                     else
                         False
             in
@@ -166,6 +168,7 @@ update msg model =
                   }
                 , Cmd.none
                 )
+
             else if gameLength >= 4 * 12 - 1 then
                 ( { model
                     | game = Array.push pick model.game
@@ -173,6 +176,7 @@ update msg model =
                   }
                 , Cmd.none
                 )
+
             else
                 ( { model | game = Array.push pick model.game }
                 , Cmd.none
@@ -340,6 +344,7 @@ view model =
                                 Maybe.withDefault Empty <|
                                     LE.getAt 3 model.secret
                             ]
+
                       else
                         row [ height fill ]
                             [ pickToColor Empty
@@ -554,6 +559,7 @@ checkRightness secret code =
             , color =
                 colorCheck
             }
+
     else
         Nothing
 
@@ -581,6 +587,7 @@ rightnessToEl rightness =
         pluralization n =
             if n == 1 then
                 ""
+
             else
                 "s"
     in
